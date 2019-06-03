@@ -3,6 +3,8 @@
 let myself = "";
 let myBills = [];
 var myTotal = 0;
+// Here's a way to possibly edit this...
+//What if I created a function that'd update my global variables, taking them as parameters?
 
 let girlfriend = "";
 let girlfriendBills = [];
@@ -37,6 +39,7 @@ let finalArray = []
   for (var y = 0; y < finalArray.length; y++){
     sum += finalArray[y];
   };
+  myTotal = sum;
   return sum;
 };
 
