@@ -25,18 +25,36 @@ function addMyBills(bill, amount){
 };
 //Totaling doesn't work yet...
 function totaling(all){
+let sum = 0;
+let eachTotal = [];
+let finalArray = []
+  for (var c = 0; c < all.length; c++ )
+    {    eachTotal.push(Object.values(all[c]));
+    };
+  for (var w = 0; w < eachTotal.length; w++){
+    finalArray.push(eachTotal[w][1]);
+  };
+  for (var y = 0; y < finalArray.length; y++){
+    sum += finalArray[y];
+  };
+  return sum;
+};
 
-}
 function showMyBills(person, month){
-  console.log("Here are your bills for " + month + "\n" + getProps(myBills) + ": \nTotal: $" + myTotal);
+  console.log("Here are your bills for " + month + "\n" + getProps(myBills) + ": \nTotal: $" + totaling(myBills));
 };       
 
 function getProps(arr){
-  let eachBill = []
+    let eachBill = [];
+    let finalArray = []
+  //This creates an array in an array. If I can then pull data from this, I can return the properties easily.
   for (var i = 0; i < arr.length; i++ )
-    {    eachBill.push((arr[i[bill]]));
+    {    eachBill.push(Object.values(arr[i]));
     };
-  let joined = eachBill.toString();
+  for (var b = 0; b < eachBill.length; b++){
+    finalArray.push(eachBill[b][0]);
+  };
+  let joined = finalArray.toString();
   return joined = joined.split(',').join(', ');
 };
 // Things to do:
